@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+div {
+    border: 2px solid black;
+    padding: 20px;
+}
+body {
+    display: flex;
+}
+.orange { background-color: orange; height: 100px; }
+.green { background-color: green; height: 160px;}
+.red { background-color: red; height: 120px;}
+.blue { background-color: blue; height: 150px;}
+.yellow { background-color: yellow; height: 150px;}
+.purple { background-color: purple; height: 220px;}
+.turqoise { background-color: turquoise; height: 200px;}
