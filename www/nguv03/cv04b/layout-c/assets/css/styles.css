@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+div {
+    border: 2px solid white;
+}
+.blue {
+    background-color: blue;
+}
+.row-second {
+    display: flex;
+}
+.red {
+    background-color: tomato;
+}
+.column-first {
+    width: 40%;
+}
+.column-second {
+    width: 60%;
+}
+.green {
+    background-color: green;
+}
+.yellow {
+    background-color: yellow;
+}
+.row-inner {
+    display: flex;
+}
+.turquoise { background-color: turquoise; }
+.purple { background-color: purple; }
+.turquoise, .purple {
+    width: 50%;
+}

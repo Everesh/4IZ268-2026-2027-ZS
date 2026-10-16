@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 10px solid brown;
+    border-radius: 50%;
+    border-top-color: transparent;
+    /* transform: rotate(0deg);
+    transition: transform linear 1s; */
+    animation: spinning 1s ease infinite;
+}
+/* .spinner:hover {
+    transform: rotate(360deg);
+} */
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
