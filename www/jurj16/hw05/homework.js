@@ -16,10 +16,10 @@ console.log("Hello, world!");
  * používejte smysluplnou angličtinu.
  */
 // Solution here
+const pepasYearOfBirth = 1997;
+const pepasAge = new Date().getFullYear() - pepasYearOfBirth;
 
-
-
-
+console.log(`Pepa is ${pepasAge} years old.`);
 
 /**
  * 2) WTF (wow, that's fun). Vypište na konzoli teplotu v Fahrenheiht, pokud znáte teplotu v Celsius, a také naopak.
@@ -28,10 +28,14 @@ console.log("Hello, world!");
  *     z F na C: odečíst 32, vynásobit 5 a vydělit 9.
  */
 // Solution here
+const tempCelsius = 20;
+const tempFahrenheiht = 68;
 
+const celsiusToFahrenheiht = (tempCelsius * 9 / 5) + 32;
+const fahrenheihtToCelsius = (tempFahrenheiht - 32) * 5 / 9;
 
-
-
+console.log(`${tempCelsius} Celsius is ${celsiusToFahrenheiht} Fahrenheiht\n` +
+  `${tempFahrenheiht} FahrenHeiht is ${fahrenheihtToCelsius} Celsius`);
 
 /**
  * 3) Funkce function fonction funktio. Vemte předchozí úlohy a udělejte z nich funkce. Tj. vytvoříte funkce,
@@ -69,10 +73,38 @@ console.log("Hello, world!");
  * tasks.appendChild(buttonSayHello);
  */
 // Solution here
+const tasksDiv = document.querySelector('#tasks');
 
+function announceAge(name, yearOfBirth) {
+  const formatedName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  const age = new Date().getFullYear() - yearOfBirth;
+  console.log(`${formatedName} is ${age} years old.${age > 25 ? " Oof!" : ""}`);
+}
 
+const buttonAnnounceAge = document.createElement('button')
+buttonAnnounceAge.innerText = "Uloha 1 (Pepa's age)";
+buttonAnnounceAge.setAttribute('id', 'task-1');
+buttonAnnounceAge.addEventListener("click", () => announceAge("pEpA", 1997));
+tasksDiv.appendChild(buttonAnnounceAge);
 
+function convertCelsiusToFahrenheiht(num) {
+  console.log(`${num} Celsius is ${(num * 9 / 5) + 32} Fahrenheiht`);
+}
+function convertFahrenheihtToCelsius(num) {
+  console.log(`${num} Fahrenheiht is ${(num - 32) * 5 / 9} Celsius`);
+}
 
+const buttonCToF = document.createElement('button')
+buttonCToF.innerText = "Uloha 2 (Celsius na Fahrenheiht)";
+buttonCToF.setAttribute('id', 'task-2-a');
+buttonCToF.addEventListener("click", () => convertCelsiusToFahrenheiht(20));
+tasksDiv.appendChild(buttonCToF);
+
+const buttonFToC = document.createElement('button')
+buttonFToC.innerText = "Uloha 2 (Fahrenheiht na Celsium)";
+buttonFToC.setAttribute('id', 'task-2-b');
+buttonFToC.addEventListener("click", () => convertFahrenheihtToCelsius(68));
+tasksDiv.appendChild(buttonFToC);
 
 /**
  * 4) %CENSORED%. Vytvořte funkci, která vezme 2 číselné argumenty a vrátí podíl prvního čísla a druhého čísla.
