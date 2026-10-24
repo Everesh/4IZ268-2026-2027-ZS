@@ -115,10 +115,22 @@ tasksDiv.appendChild(buttonFToC);
  * Pro testování vytvořte tlačítko s touto funkcí podle pokynu v úloze č. 3
  */
 // Solution here
+const resultsDiv = document.querySelector('#results');
 
+function getPercentage(a, b) {
+  if (b === 0) {
+    resultsDiv.textContent = "Can not divide by zero!";
+    throw new Error("Attempted division by zero, this incident will be reported! You are DONE buddy!");
+  }
 
+  resultsDiv.textContent = `${a} / ${b} = ${(a / b).toFixed(2) * 100}%`;
+}
 
-
+const buttonGetPercentage = document.createElement('button')
+buttonGetPercentage.innerText = "Uloha 4 (%CENSORED%)";
+buttonGetPercentage.setAttribute('id', 'task-4');
+buttonGetPercentage.addEventListener("click", () => getPercentage(21, 42));
+tasksDiv.appendChild(buttonGetPercentage);
 
 /**
  * 5) Kdo s koho. Vytvořte funkci, která vezme 2 číselné argumenty a vypíše, který z nich je větší, do předem vytvořeného
@@ -129,10 +141,28 @@ tasksDiv.appendChild(buttonFToC);
  * úloze č. 3. Argumenty pro volání funkce zadávejte staticky.
  */
 // Solution here
+function getLarger(a, b) {
+  switch (true) {
+    case a == b: // lax equality to match 4 to 4.0 and such (also means true and 1 would equal, but eh, im not gonna bother with guiarding that)
+      resultsDiv.textContent = `${a} a ${b} si jsou rovny`;
+      break;
+    case a > b:
+      resultsDiv.textContent = `${a} je větší než ${b}`;
+      break;
+    case b > a:
+      resultsDiv.textContent = `${b} je větší než ${a}`;
+      break;
+    default:
+      resultsDiv.textContent = `No idea what you fed this, but neither ${a} or ${b} are bigger nor are they equal.`
+      break;
+  }
+}
 
-
-
-
+const buttonGetLarger = document.createElement('button')
+buttonGetLarger.innerText = "Uloha 5 (Kdo z Koho)";
+buttonGetLarger.setAttribute('id', 'task-5');
+buttonGetLarger.addEventListener("click", () => getLarger(4, 4.1));
+tasksDiv.appendChild(buttonGetLarger);
 
 /**
  * 6) I can cleary see the pattern. Vytvořte funkci, která vypíše popořadě všechny násobky 13, které jsou menší
@@ -141,10 +171,20 @@ tasksDiv.appendChild(buttonFToC);
  * Pro testování vytvořte tlačítko s touto funkcí podle pokynu v úloze č. 3.
  */
 // Solution here
+function getMultiplesOf13() {
+  let str = "";
 
+  for (let num = 0; num <= 730; num += 13) {
+    str = `${str}${str.length < 1 ? "" : ", "}${num}`;
+    resultsDiv.textContent = str;
+  }
+}
 
-
-
+const buttonGetMultiplesOf13 = document.createElement('button')
+buttonGetMultiplesOf13.innerText = "Uloha 6 (I can cleary see the pattern)";
+buttonGetMultiplesOf13.setAttribute('id', 'task-6');
+buttonGetMultiplesOf13.addEventListener("click", () => getMultiplesOf13());
+tasksDiv.appendChild(buttonGetMultiplesOf13);
 
 /**
  * 7) Around and about. Vytvořte funkci, která vypočte obsah kružnice podle dodaného poloměru v argumentu.
@@ -153,10 +193,15 @@ tasksDiv.appendChild(buttonFToC);
  * staticky.
  */
 // Solution here
+function getCircleSurface(radius) {
+  resultsDiv.textContent = `Obsah kružníce o poloměru ${radius} jednotek je ${Math.PI * (radius ** 2)} jednotek^2`;
+}
 
-
-
-
+const buttonGetCircleSurface = document.createElement('button')
+buttonGetCircleSurface.innerText = "Uloha 7 (Around and about)";
+buttonGetCircleSurface.setAttribute('id', 'task-7');
+buttonGetCircleSurface.addEventListener("click", () => getCircleSurface(5));
+tasksDiv.appendChild(buttonGetCircleSurface);
 
 /**
  * 8) Another dimension. Vytvořte funkci, která vypočte objem kuželu, pokud dostanete na argumentech výšku a poloměr.
