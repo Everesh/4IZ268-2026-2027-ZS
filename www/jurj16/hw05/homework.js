@@ -158,7 +158,7 @@ function getLarger(a, b) {
   }
 }
 
-const buttonGetLarger = document.createElement('button')
+const buttonGetLarger = document.createElement('button');
 buttonGetLarger.innerText = "Uloha 5 (Kdo z Koho)";
 buttonGetLarger.setAttribute('id', 'task-5');
 buttonGetLarger.addEventListener("click", () => getLarger(4, 4.1));
@@ -180,7 +180,7 @@ function getMultiplesOf13() {
   }
 }
 
-const buttonGetMultiplesOf13 = document.createElement('button')
+const buttonGetMultiplesOf13 = document.createElement('button');
 buttonGetMultiplesOf13.innerText = "Uloha 6 (I can cleary see the pattern)";
 buttonGetMultiplesOf13.setAttribute('id', 'task-6');
 buttonGetMultiplesOf13.addEventListener("click", () => getMultiplesOf13());
@@ -197,7 +197,7 @@ function getCircleSurface(radius) {
   resultsDiv.textContent = `Obsah kružníce o poloměru ${radius} jednotek je ${Math.PI * (radius ** 2)} jednotek^2`;
 }
 
-const buttonGetCircleSurface = document.createElement('button')
+const buttonGetCircleSurface = document.createElement('button');
 buttonGetCircleSurface.innerText = "Uloha 7 (Around and about)";
 buttonGetCircleSurface.setAttribute('id', 'task-7');
 buttonGetCircleSurface.addEventListener("click", () => getCircleSurface(5));
@@ -214,7 +214,7 @@ function getVolumeCone(height, radius) {
   resultsDiv.textContent = `Objem kuželu o poloměru ${radius} jednotek a výšce ${height} jednotek je ${Math.PI * (radius ** 2) * height / 3} jednotek^3`;
 }
 
-const buttonGetVolumeCone = document.createElement('button')
+const buttonGetVolumeCone = document.createElement('button');
 buttonGetVolumeCone.innerText = "Uloha 8 (Another dimension)";
 buttonGetVolumeCone.setAttribute('id', 'task-8');
 buttonGetVolumeCone.addEventListener("click", () => getVolumeCone(8, 5));
@@ -235,7 +235,7 @@ function isTriangleValid(a, b, c) {
   return isValid;
 }
 
-const buttonIsTriangleValid = document.createElement('button')
+const buttonIsTriangleValid = document.createElement('button');
 buttonIsTriangleValid.innerText = "Uloha 9 (Not sure if triangle)";
 buttonIsTriangleValid.setAttribute('id', 'task-9');
 buttonIsTriangleValid.addEventListener("click", () => isTriangleValid(8, 5, 2));
@@ -274,7 +274,7 @@ function getTriangleArea(a, b, c) {
   resultsDiv.textContent = `Obsah trojúhelníku se stranami ${a}, ${b}, ${c} je ${area} jednotek^2.`;
 }
 
-const buttonGetTriangleArea = document.createElement('button')
+const buttonGetTriangleArea = document.createElement('button');
 buttonGetTriangleArea.innerText = "Uloha 10 (Heroic performance)";
 buttonGetTriangleArea.setAttribute('id', 'task-10');
 buttonGetTriangleArea.addEventListener("click", () => getTriangleArea(8, 5, 4));
