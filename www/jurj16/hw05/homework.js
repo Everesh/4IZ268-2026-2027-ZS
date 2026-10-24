@@ -210,10 +210,15 @@ tasksDiv.appendChild(buttonGetCircleSurface);
  * staticky.
  */
 // Solution here
+function getVolumeCone(height, radius) {
+  resultsDiv.textContent = `Objem kuželu o poloměru ${radius} jednotek a výšce ${height} jednotek je ${Math.PI * (radius ** 2) * height / 3} jednotek^3`;
+}
 
-
-
-
+const buttonGetVolumeCone = document.createElement('button')
+buttonGetVolumeCone.innerText = "Uloha 8 (Another dimension)";
+buttonGetVolumeCone.setAttribute('id', 'task-8');
+buttonGetVolumeCone.addEventListener("click", () => getVolumeCone(8, 5));
+tasksDiv.appendChild(buttonGetVolumeCone);
 
 /**
  * 9) Not sure if triangle, or just some random values. Vytvořte funkci, která rozhodne, zda se z
@@ -224,10 +229,17 @@ tasksDiv.appendChild(buttonGetCircleSurface);
  * staticky.
  */
 // Solution here
+function isTriangleValid(a, b, c) {
+  const isValid = a + b > c && a + c > b && b + c > a;
+  resultsDiv.textContent = `Pro úsečky: ${a}, ${b} a ${c} ${isValid ? "" : "ne" }existuje validní trojúhelník`;
+  return isValid;
+}
 
-
-
-
+const buttonIsTriangleValid = document.createElement('button')
+buttonIsTriangleValid.innerText = "Uloha 9 (Not sure if triangle)";
+buttonIsTriangleValid.setAttribute('id', 'task-9');
+buttonIsTriangleValid.addEventListener("click", () => isTriangleValid(8, 5, 2));
+tasksDiv.appendChild(buttonIsTriangleValid);
 
 /**
  * 10) Heroic performance. Vytvořte funkci, která vypočte a vypíše obsah trojúhelníka podle Heronova vzorce,
@@ -249,3 +261,21 @@ tasksDiv.appendChild(buttonGetCircleSurface);
 // - krok 3 - nabindujte na toto tlačítko callback, ve kterém zavoláte implementovanou funkci pro výpočet a výpis výsledků
 // - krok 4 - tlačítko umístěte na stránku
 // - krok 5 - otestujte řešení klikáním na tlačítko
+function getTriangleArea(a, b, c) {
+  // updates the text content, since I opted to make the functions mutate the DOM instead of mutating it after the call
+  // doesn't matter since we will mutate it again before exiting the scope of this function, but still should be noted
+  if (!isTriangleValid(a, b, c)) {
+    return; // not remutating the results div here, the message would be the same as what isTriangleValid already set there
+  }
+
+  // as per https://en.wikipedia.org/wiki/Heron%27s_formula
+  const s = (a + b + c) / 2;
+  const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+  resultsDiv.textContent = `Obsah trojúhelníku se stranami ${a}, ${b}, ${c} je ${area} jednotek^2.`;
+}
+
+const buttonGetTriangleArea = document.createElement('button')
+buttonGetTriangleArea.innerText = "Uloha 10 (Heroic performance)";
+buttonGetTriangleArea.setAttribute('id', 'task-10');
+buttonGetTriangleArea.addEventListener("click", () => getTriangleArea(8, 5, 4));
+tasksDiv.appendChild(buttonGetTriangleArea);
